@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-
+	readmessage(createmessage())
 }
 
 func createmessage() []byte {
@@ -24,7 +24,12 @@ func createmessage() []byte {
 
 }
 
-func readmessage([]byte) {
+func readmessage(data []byte) {
+	ProtoMessage := new(msgproto.Msg)
+	err = proto.Unmarshal(data[0:n], ProtoMessage)
+	if err != nil {
+	}
+	fmt.Println(ProtoMessage.getId())
 
 }
 
