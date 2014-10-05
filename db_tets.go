@@ -11,7 +11,10 @@ import (
 )
 
 func main() {
-	readmessage(createmessage())
+	data := createmessage()
+	fmt.Println(data)
+	writedata(data)
+	readata()
 }
 
 func createmessage() []byte {
@@ -25,15 +28,6 @@ func createmessage() []byte {
 		fmt.Println(err)
 	}
 	return data
-
-}
-
-func readmessage(data []byte) {
-	ProtoMessage := new(msgproto.Msg)
-	err := proto.Unmarshal(data, ProtoMessage)
-	if err != nil {
-	}
-	fmt.Println(ProtoMessage.GetId())
 
 }
 
@@ -57,4 +51,20 @@ func readata() {
 		fmt.Printf("%s %d %d", name, age, id)
 	}
 	db.Close()
+}
+func writedata(data []byte) {
+	ProtoMessage := new(msgproto.Msg)
+	err := proto.Unmarshal(data, ProtoMessage)
+	if err != nil {
+	}
+	db, err := sql.Open("postgres", "user=postgres password='pol' dbname=test sslmode=disable ")
+	if err != nil {
+		fmt.Println(err)
+	}
+	rows, err := db.Exec("INSERT INTO public.data values($1,$2,$3,to_timestamp($4))", ProtoMessage.GetId(), ProtoMessage.GetLat(), ProtoMessage.GetLong(), ProtoMessage.GetUtime())
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(rows)
+
 }
