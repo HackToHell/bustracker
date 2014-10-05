@@ -1,5 +1,5 @@
 // db_tets
-package msgproto
+package main
 
 import (
 	"code.google.com/p/goprotobuf/proto"
@@ -20,16 +20,20 @@ func createmessage() []byte {
 	ProtoMessage.Lat = proto.Int64(12344)
 	ProtoMessage.Long = proto.Int64(12344)
 	ProtoMessage.Utime = proto.Int64(int64(time.Now().Unix()))
-	proto.Marshal(ProtoMessage)
+	data, err := proto.Marshal(ProtoMessage)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return data
 
 }
 
 func readmessage(data []byte) {
 	ProtoMessage := new(msgproto.Msg)
-	err = proto.Unmarshal(data[0:n], ProtoMessage)
+	err := proto.Unmarshal(data, ProtoMessage)
 	if err != nil {
 	}
-	fmt.Println(ProtoMessage.getId())
+	fmt.Println(ProtoMessage.GetId())
 
 }
 

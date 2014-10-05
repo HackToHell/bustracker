@@ -1,5 +1,5 @@
 // server_dos
-package main
+package serverz
 
 import (
 	"fmt"
