@@ -9,13 +9,12 @@ import (
 
 func main() {
 
-	for {
-		go Spamreqs()
-	}
+	go Spamreqs()
+
 }
 
 func Spamreqs() {
-	l, err := net.Dial("tcp", "localhost:3334")
+	l, err := net.Dial("tcp", "localhost:8090")
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())
 		os.Exit(1)
