@@ -23,10 +23,10 @@ func main() {
 func create_message() []byte {
 
 	ProtoMessage := new(msgproto.Msg)
-	ProtoMessage.Id = proto.Int32(rand.Int31())
-	ProtoMessage.Lat = proto.Int64(rand.Int63())
-	ProtoMessage.Long = proto.Int64(rand.Int63())
-	ProtoMessage.Utime = proto.Int64(int64(time.Now().Unix()))
+	ProtoMessage.Id = proto.Int32(int32(rand.Intn(1000)))
+	ProtoMessage.Lat = proto.Int64(int64(rand.Intn(1000)))
+	ProtoMessage.Long = proto.Int64(int64(rand.Intn(1000)))
+	ProtoMessage.Utime = proto.Int64((time.Now().Unix()))
 	data, err := proto.Marshal(ProtoMessage)
 	if err != nil {
 		fmt.Println(err)
