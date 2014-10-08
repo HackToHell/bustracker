@@ -9,6 +9,7 @@ import (
 	"msgproto"
 	"net"
 	"os"
+	"runtime"
 )
 
 const (
@@ -29,7 +30,7 @@ func handleRequest(conn net.Conn) {
 
 	// Close the connection when you're done with it.
 	conn.Close()
-	go writedata(protodata)
+	//go writedata(protodata)
 
 }
 func writedata(ProtoMessage *msgproto.Msg) {
@@ -46,6 +47,7 @@ func writedata(ProtoMessage *msgproto.Msg) {
 
 }
 func main() {
+	runtime.GOMAXPROCS(2)
 	l, err := net.Listen(CONN_TYPE, ":"+CONN_PORT)
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())

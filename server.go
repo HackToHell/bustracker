@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	CONN_HOST = ""
+	CONN_HOST = "localhost"
 	CONN_PORT = "8090"
 	CONN_TYPE = "tcp"
 )
@@ -26,6 +26,7 @@ func handleRequest(conn net.Conn) {
 	}
 	protodata := new(msgproto.Msg)
 	err = proto.Unmarshal(data[0:n], protodata)
+	fmt.Println(protodata.GetId())
 
 	// Close the connection when you're done with it.
 	conn.Close()
@@ -46,11 +47,13 @@ func writedata(ProtoMessage *msgproto.Msg) {
 
 }
 func main() {
+
 	l, err := net.Listen(CONN_TYPE, ":"+CONN_PORT)
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())
 		os.Exit(1)
 	}
+	fmt.Println("Hi")
 	// Close the listener when the application closes.
 	defer l.Close()
 	for {
