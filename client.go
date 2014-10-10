@@ -14,7 +14,7 @@ import (
 func main() {
 	var wg sync.WaitGroup
 	fmt.Println("Start")
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 1000; i++ {
 		wg.Add(1)
 		go send_data(create_message(), wg)
 	}
