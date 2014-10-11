@@ -9,6 +9,7 @@ import (
 	"msgproto"
 	"net"
 	"os"
+	"strconv"
 )
 
 const (
@@ -17,30 +18,30 @@ const (
 	CONN_TYPE = "tcp"
 )
 
-func createdatabd(n int) {
-	db, err := sql.Open("postgres", "user=postgres password='pol' dbname=test sslmode=disable ")
-	var doesitexist string
-	if err != nil {
-		fmt.Println(err)
-	}
+//func createdatabd(n int) {
+//	db, err := sql.Open("postgres", "user=postgres password='pol' dbname=test sslmode=disable ")
+//	var doesitexist string
+//	if err != nil {
+//		fmt.Println(err)
+//	}
 
-	for i := 0; i <= n; i++ {
-		rows, err := db.Exec("SELECT EXISTS(SELECT * FROM information_schema.tables WHERE table_name=$1)", n).Scan(&doesitexist)
-		fmt.Println(rows)
-		if err != nil {
-			fmt.Println(err)
-		}
-		if doesitexist == "t" {
+//	for i := 0; i <= n; i++ {
+//		rows, err := db.Exec("SELECT EXISTS(SELECT * FROM information_schema.tables WHERE table_name=$1)", n).Scan(&doesitexist)
+//		fmt.Println(rows)
+//		if err != nil {
+//			fmt.Println(err)
+//		}
+//		if doesitexist == "t" {
 
-		} else {
-			rows, err := db.Exec("CREATE TABLE $1(Lat numberic(10),Long numeric(10),utime timestamp", n)
-			if err != nil {
-				fmt.Println(err)
-			}
-		}
+//		} else {
+//			rows, err := db.Exec("CREATE TABLE $1(Lat numberic(10),Long numeric(10),utime timestamp", n)
+//			if err != nil {
+//				fmt.Println(err)
+//			}
+//		}
 
-	}
-}
+//	}
+//}
 
 func handleRequest(conn net.Conn) {
 	data := make([]byte, 4096)
@@ -64,7 +65,9 @@ func writedata(ProtoMessage *msgproto.Msg) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	rows, err := db.Exec("INSERT INTO public.data values($1,$2,$3,to_timestamp($4))", ProtoMessage.GetId(), ProtoMessage.GetLat(), ProtoMessage.GetLong(), ProtoMessage.GetUtime())
+	var query string
+	string = "INSERT INTO bus_" + string(ProtoMessage.GetId()) + " values(" + strconv.FormatInt(ProtoMessage.GetLat(), 10) + "," + strconv.FormatInt(ProtoMessage.GetLong(), 10) + "," + strconv.FormatInt(ProtoMessage.GetUtime(), 10)
+	rows, err := db.Exec("INSERT INTO bus_$1 values($2,$3,to_timestamp($4))", ProtoMessage.GetId(), ProtoMessage.GetLat(), ProtoMessage.GetLong(), ProtoMessage.GetUtime())
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -72,7 +75,7 @@ func writedata(ProtoMessage *msgproto.Msg) {
 
 }
 func main() {
-	createdatabd(10)
+	//createdatabd(10)
 	l, err := net.Listen(CONN_TYPE, ":"+CONN_PORT)
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())
