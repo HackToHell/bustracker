@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\pre-dexed\debug\classes-4f179132aafa3b1dc8331dc45324e0c23f9f1367.jar"
+        jar="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+    <item
+        dex="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\pre-dexed\debug\protobuf-java-2.6.0-2895af958c80e9935af49f4ab20ba4093bed7aed.jar"
+        jar="C:\Users\gowtham\.gradle\caches\modules-2\files-2.1\com.google.protobuf\protobuf-java\2.6.0\88ba32feefe385d5dc284b71f649201eabd15778\protobuf-java-2.6.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="88ba32feefe385d5dc284b71f649201eabd15778"/>
+    <item
+        dex="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-b2d63c09d3aac96eff56562ab2c83fa5eb58390e.jar"
+        jar="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\pre-dexed\debug\classes-18967b0004d34a2e8743a14cc708c000ed908d4f.jar"
+        jar="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\pre-dexed\debug\classes-c89315c6929ff17ec7829904b3a1498f3e5bd83d.jar"
+        jar="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\4.2.42\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e5f81129dfb3d02df80126512bc98278ed2bb40a"/>
+    <item
+        dex="C:\Users\gowtham\AndroidStudioProjects\LocationUpdates\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-a4e99bb09db83315001218d362c2ad030bbe2f2c.jar"
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+
+</pre-dex-items>
