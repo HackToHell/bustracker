@@ -83,6 +83,7 @@
     <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="protobuf-java-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-4.2.42" level="project" />
+    <orderEntry type="library" exported="" name="androidasync-1.0.8" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-20.0.0" level="project" />
   </component>

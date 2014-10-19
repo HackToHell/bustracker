@@ -326,37 +326,10 @@ public class MainActivity extends FragmentActivity implements
             mLatLng.setText(LocationUtils.getLatLng(this, currentLocation));
         }
     }
-    private Socket opensoc() throws IOException {
-        Socket s = null;
 
-            s = new Socket("192.168.1.100", TCP_SERVER_PORT);
-
-        return s;
-
-    }
     private void runTcpClient(byte[] data) {
-        try {
-
-            Socket s = opensoc();
-            BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            BufferedOutputStream out = new BufferedOutputStream(s.getOutputStream());
-            //send output msg
-            if (s != null)
-                if (s.isConnected()) {
-                    out.write(data);
-                    out.flush();
-                    Log.i(LocationUtils.APPTAG, "sent: " + data.toString());
-                    //accept server response
-                    String inMsg = in.readLine() + System.getProperty("line.separator");
-                    Log.i(LocationUtils.APPTAG, "received: " + inMsg);
-                    //close connection
-                }
-            s.close();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Asyncsocket n = new Asyncsocket("192.169.1.100",TCP_SERVER_PORT,data);
+        n.execute();
     }
 
     /**

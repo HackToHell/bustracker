@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.location.test">
+    package="hacktohell.org.bustrcker_client.test">
 
     <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="20" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.example.android.location"
+                     android:targetPackage="hacktohell.org.bustrcker_client"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.example.android.location"/>
+                     android:label="Tests for hacktohell.org.bustrcker_client"/>
 </manifest>
