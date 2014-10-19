@@ -9,11 +9,11 @@ import (
 	"msgproto"
 	"net"
 	"os"
-	"strconv"
+	//	"strconv"
 )
 
 const (
-	CONN_HOST = "localhost"
+	CONN_HOST = "192.168.1.101"
 	CONN_PORT = "8090"
 	CONN_TYPE = "tcp"
 )
@@ -53,10 +53,11 @@ func handleRequest(conn net.Conn) {
 	protodata := new(msgproto.Msg)
 	err = proto.Unmarshal(data[0:n], protodata)
 	fmt.Println(protodata.GetId())
+	fmt.Println(protodata.GetLat())
 
 	// Close the connection when you're done with it.
 	conn.Close()
-	go writedata(protodata)
+	//go writedata(protodata)
 
 }
 func writedata(ProtoMessage *msgproto.Msg) {
@@ -65,9 +66,9 @@ func writedata(ProtoMessage *msgproto.Msg) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	var query string
-	string = "INSERT INTO bus_" + string(ProtoMessage.GetId()) + " values(" + strconv.FormatInt(ProtoMessage.GetLat(), 10) + "," + strconv.FormatInt(ProtoMessage.GetLong(), 10) + "," + strconv.FormatInt(ProtoMessage.GetUtime(), 10)
-	rows, err := db.Exec("INSERT INTO bus_$1 values($2,$3,to_timestamp($4))", ProtoMessage.GetId(), ProtoMessage.GetLat(), ProtoMessage.GetLong(), ProtoMessage.GetUtime())
+	//var query string
+	//string = "INSERT INTO bus_" + string(ProtoMessage.GetId()) + " values(" + strconv.FormatInt(ProtoMessage.GetLat(), 10) + "," + strconv.FormatInt(ProtoMessage.GetLong(), 10) + "," + strconv.FormatInt(ProtoMessage.GetUtime(), 10)
+	rows, err := db.Exec("INSERT INTO $1 values($2,$3,to_timestamp($4))", ProtoMessage.GetId(), ProtoMessage.GetLat(), ProtoMessage.GetLong(), ProtoMessage.GetUtime())
 	if err != nil {
 		fmt.Println(err)
 	}
