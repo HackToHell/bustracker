@@ -21,11 +21,11 @@ var _ = proto.Marshal
 var _ = math.Inf
 
 type Msg struct {
-	Id               *int32 `protobuf:"varint,1,req,name=id" json:"id,omitempty"`
-	Lat              *int64 `protobuf:"varint,2,req,name=lat" json:"lat,omitempty"`
-	Long             *int64 `protobuf:"varint,3,req,name=long" json:"long,omitempty"`
-	Utime            *int64 `protobuf:"varint,4,req,name=utime" json:"utime,omitempty"`
-	XXX_unrecognized []byte `json:"-"`
+	Id               *int32   `protobuf:"varint,1,req,name=id" json:"id,omitempty"`
+	Lat              *float32 `protobuf:"fixed32,2,req,name=lat" json:"lat,omitempty"`
+	Long             *float32 `protobuf:"fixed32,3,req,name=long" json:"long,omitempty"`
+	Utime            *int64   `protobuf:"varint,4,req,name=utime" json:"utime,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *Msg) Reset()         { *m = Msg{} }
@@ -39,14 +39,14 @@ func (m *Msg) GetId() int32 {
 	return 0
 }
 
-func (m *Msg) GetLat() int64 {
+func (m *Msg) GetLat() float32 {
 	if m != nil && m.Lat != nil {
 		return *m.Lat
 	}
 	return 0
 }
 
-func (m *Msg) GetLong() int64 {
+func (m *Msg) GetLong() float32 {
 	if m != nil && m.Long != nil {
 		return *m.Long
 	}

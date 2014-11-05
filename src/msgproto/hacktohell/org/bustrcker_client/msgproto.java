@@ -22,22 +22,22 @@ public final class msgproto {
     int getId();
 
     /**
-     * <code>required int64 lat = 2;</code>
+     * <code>required float lat = 2;</code>
      */
     boolean hasLat();
     /**
-     * <code>required int64 lat = 2;</code>
+     * <code>required float lat = 2;</code>
      */
-    long getLat();
+    float getLat();
 
     /**
-     * <code>required int64 long = 3;</code>
+     * <code>required float long = 3;</code>
      */
     boolean hasLong();
     /**
-     * <code>required int64 long = 3;</code>
+     * <code>required float long = 3;</code>
      */
-    long getLong();
+    float getLong();
 
     /**
      * <code>required int64 utime = 4;</code>
@@ -105,14 +105,14 @@ public final class msgproto {
               id_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 21: {
               bitField0_ |= 0x00000002;
-              lat_ = input.readInt64();
+              lat_ = input.readFloat();
               break;
             }
-            case 24: {
+            case 29: {
               bitField0_ |= 0x00000004;
-              long_ = input.readInt64();
+              long_ = input.readFloat();
               break;
             }
             case 32: {
@@ -176,32 +176,32 @@ public final class msgproto {
     }
 
     public static final int LAT_FIELD_NUMBER = 2;
-    private long lat_;
+    private float lat_;
     /**
-     * <code>required int64 lat = 2;</code>
+     * <code>required float lat = 2;</code>
      */
     public boolean hasLat() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int64 lat = 2;</code>
+     * <code>required float lat = 2;</code>
      */
-    public long getLat() {
+    public float getLat() {
       return lat_;
     }
 
     public static final int LONG_FIELD_NUMBER = 3;
-    private long long_;
+    private float long_;
     /**
-     * <code>required int64 long = 3;</code>
+     * <code>required float long = 3;</code>
      */
     public boolean hasLong() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int64 long = 3;</code>
+     * <code>required float long = 3;</code>
      */
-    public long getLong() {
+    public float getLong() {
       return long_;
     }
 
@@ -222,8 +222,8 @@ public final class msgproto {
 
     private void initFields() {
       id_ = 0;
-      lat_ = 0L;
-      long_ = 0L;
+      lat_ = 0F;
+      long_ = 0F;
       utime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
@@ -259,10 +259,10 @@ public final class msgproto {
         output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, lat_);
+        output.writeFloat(2, lat_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt64(3, long_);
+        output.writeFloat(3, long_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt64(4, utime_);
@@ -282,11 +282,11 @@ public final class msgproto {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, lat_);
+          .computeFloatSize(2, lat_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, long_);
+          .computeFloatSize(3, long_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -411,9 +411,9 @@ public final class msgproto {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        lat_ = 0L;
+        lat_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000002);
-        long_ = 0L;
+        long_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000004);
         utime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -564,66 +564,66 @@ public final class msgproto {
         return this;
       }
 
-      private long lat_ ;
+      private float lat_ ;
       /**
-       * <code>required int64 lat = 2;</code>
+       * <code>required float lat = 2;</code>
        */
       public boolean hasLat() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int64 lat = 2;</code>
+       * <code>required float lat = 2;</code>
        */
-      public long getLat() {
+      public float getLat() {
         return lat_;
       }
       /**
-       * <code>required int64 lat = 2;</code>
+       * <code>required float lat = 2;</code>
        */
-      public Builder setLat(long value) {
+      public Builder setLat(float value) {
         bitField0_ |= 0x00000002;
         lat_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 lat = 2;</code>
+       * <code>required float lat = 2;</code>
        */
       public Builder clearLat() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        lat_ = 0L;
+        lat_ = 0F;
         onChanged();
         return this;
       }
 
-      private long long_ ;
+      private float long_ ;
       /**
-       * <code>required int64 long = 3;</code>
+       * <code>required float long = 3;</code>
        */
       public boolean hasLong() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int64 long = 3;</code>
+       * <code>required float long = 3;</code>
        */
-      public long getLong() {
+      public float getLong() {
         return long_;
       }
       /**
-       * <code>required int64 long = 3;</code>
+       * <code>required float long = 3;</code>
        */
-      public Builder setLong(long value) {
+      public Builder setLong(float value) {
         bitField0_ |= 0x00000004;
         long_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 long = 3;</code>
+       * <code>required float long = 3;</code>
        */
       public Builder clearLong() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        long_ = 0L;
+        long_ = 0F;
         onChanged();
         return this;
       }
@@ -686,7 +686,7 @@ public final class msgproto {
   static {
     java.lang.String[] descriptorData = {
       "\n\tmsg.proto\022\010msgproto\";\n\003msg\022\n\n\002id\030\001 \002(\005" +
-      "\022\013\n\003lat\030\002 \002(\003\022\014\n\004long\030\003 \002(\003\022\r\n\005utime\030\004 \002" +
+      "\022\013\n\003lat\030\002 \002(\002\022\014\n\004long\030\003 \002(\002\022\r\n\005utime\030\004 \002" +
       "(\003B+\n\037hacktohell.org.bustrcker_clientB\010m" +
       "sgproto"
     };
