@@ -316,8 +316,8 @@ public class MainActivity extends FragmentActivity implements
             // Get the current location
             Location currentLocation = mLocationClient.getLastLocation();
             data.setId(1);
-            data.setLat((long) currentLocation.getLatitude());
-            data.setLong((long) currentLocation.getLongitude());
+            data.setLat((float) currentLocation.getLatitude());
+            data.setLong((float) currentLocation.getLongitude());
             data.setUtime(System.currentTimeMillis() / 1000L);
             Log.d(LocationUtils.APPTAG, data.build().toByteArray().toString());
             Log.d(LocationUtils.APPTAG, Long.toString(data.getUtime()));

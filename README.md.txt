@@ -19,6 +19,6 @@ After installing protobuf from http://code.google.com/p/protobuf/
 
 Finally run
 
-   go run server.go
+    go run server.go
 
 This should start the protobuf server, the HTTP server is server2.go(Still incomplete). Currently uses Postgres, will add schema later.  
